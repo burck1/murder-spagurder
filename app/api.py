@@ -7,30 +7,28 @@ def ping_response():
     )
 
 def start_response(color):
-    assert type(color) is str, \
-        "Color value must be string"
+    assert type(color) is str, 'Color value must be string'
 
     return HTTPResponse(
         status=200,
         headers={
-            "Content-Type": "application/json"
+            'Content-Type': 'application/json'
         },
         body=json.dumps({
-            "color": color
+            'color': color
         })
     )
 
 def move_response(move):
-    assert move in ['up', 'down', 'left', 'right'], \
-        "Move must be one of [up, down, left, right]"
+    assert move in ['up', 'down', 'left', 'right'], 'Move must be one of [up, down, left, right]'
 
     return HTTPResponse(
         status=200,
         headers={
-            "Content-Type": "application/json"
+            'Content-Type': 'application/json'
         },
         body=json.dumps({
-            "move": move
+            'move': move
         })
     )
 
