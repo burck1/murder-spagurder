@@ -293,19 +293,14 @@ def choose_random_avoid_food_until_hungry(directions, x, y, game):
     else:
         return choose_random_avoid_food(directions, x, y, game)
 
-
-
-
-def think():
-
-    inputs = [...]
-    output = brain.predict(inputs)
-    if output < 0.25 {
-        return 'up'
-    } elif output < 0.5 {
-        return 'down'
-    } elif output < 0.75 {
-        return 'left'
-    } else {
-        return 'right'
-    }
+# def think():
+#     inputs = [...]
+#     output = brain.predict(inputs)
+#     if output < 0.25:
+#         return 'up'
+#     elif output < 0.5:
+#         return 'down'
+#     elif output < 0.75:
+#         return 'left'
+#     else:
+#         return 'right'
