@@ -76,7 +76,6 @@ class Snek:
         try:
             for index_episode in range(self.episodes):
                 state = self.env.reset()
-                state = np.reshape(state, [1, self.state_size])
 
                 done = False
                 index = 0
@@ -86,10 +85,14 @@ class Snek:
                     action = self.agent.act(state)
 
                     next_state, reward, done, _ = self.env.step(action)
-                    next_state = np.reshape(next_state, [1, self.state_size])
                     self.agent.remember(state, action, reward, next_state, done)
                     state = next_state
                     index += 1
+
+                # We've got 8 brains
+                # Choose the best and clone
+                # Run the following for each clone, this will slightly "mutate" each
+
                 print("Episode {}# Score: {}".format(index_episode, index + 1))
                 self.agent.replay(self.sample_batch_size)
         finally:
