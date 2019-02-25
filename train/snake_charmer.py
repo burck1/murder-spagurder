@@ -1,12 +1,3 @@
-
-#encoding: utf-8
-
-##
-## cartpole.py
-## Gaetan JUVIN 06/24/2017
-##
-
-from gym import make
 import random
 import os
 import numpy as np
@@ -15,9 +6,12 @@ from keras.models     import Sequential
 from keras.layers     import Dense
 from keras.optimizers import Adam
 
+# our stuff
+from gym import make
+
 class Agent():
     def __init__(self, state_size, action_size):
-        self.weight_backup      = "cartpole_weight.h5"
+        self.weight_backup      = "snek_weight.h5"
         self.state_size         = state_size
         self.action_size        = action_size
         self.memory             = deque(maxlen=2000)
@@ -67,11 +61,11 @@ class Agent():
         if self.exploration_rate > self.exploration_min:
             self.exploration_rate *= self.exploration_decay
 
-class CartPole:
+class Snek:
     def __init__(self):
         self.sample_batch_size = 32
         self.episodes          = 10000
-        self.env               = make('CartPole-v1')
+        self.env               = make('snek-v1')
 
         self.state_size        = self.env.observation_space.shape[0]
         self.action_size       = self.env.action_space.n
@@ -102,5 +96,5 @@ class CartPole:
             self.agent.save_model()
 
 if __name__ == "__main__":
-    cartpole = CartPole()
-    cartpole.run()
+    snek = Snek()
+    snek.run()
